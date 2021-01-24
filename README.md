@@ -8,7 +8,7 @@ Yes. I went to the dark side and chose `dogs` instead.
 
 ## About
 
-This project was created by sugar-valley for #CODE. It includes basics of HTML, CSS and React.
+This project was created by sugarvalley for #CODE. It includes basics of HTML, CSS and React.
 Fetching data from API using form and button. Connecting two fetches. (`data1.id` -> `id.data2`)
 
 * [x] Search by breeds
