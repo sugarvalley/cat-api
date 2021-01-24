@@ -9,10 +9,10 @@ const App = () => {
     const [breed, setBreed] = useState([]);
     const [search, setSearch] = useState('');
     const [query, setQuery] = useState('samoyed');
-    const [randomQuery, setRandomQuery] = useState('');
+    const [randomQuery, setRandomQuery] = useState();
 
     useEffect(() => {
-    getBreed();
+        getBreed();
     }, [query]);
 
     useEffect(() => {
@@ -79,10 +79,14 @@ const App = () => {
                             temperament={breeds["temperament"]}
                             weight={breeds.weight["metric"]}
                             height={breeds.height["metric"]}
+                            image={breeds["reference_image_id"]}
                             />
                         ))}
                     </div>
                 </div>
+                {/*<div className="Puppies">*/}
+                {/*    <img src="https://i.pinimg.com/originals/eb/19/20/eb192033f2e2c7df5ba254ec22d207f2.png" alt="puppies"/>*/}
+                {/*</div>*/}
                 <div className="Right">
                     <div className="Button">
                         <p>Not sure, what breed is for you?</p>
@@ -94,12 +98,12 @@ const App = () => {
                            <Random
                                key={randomdog.id}
                                image={randomdog.url}
-                               breed={randomdog.id} />
+                               breed={randomdog.breeds[0].name}
+                            />
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="Mid-bot"></div>
             <div className="Bot"></div>
         </div>
     );
