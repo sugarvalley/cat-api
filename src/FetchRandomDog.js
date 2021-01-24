@@ -1,13 +1,11 @@
 import React from "react";
+import './App.css';
 
-export const Hello = () => {
-    React.useEffect(() => {
-        console.log("render");
-        return () => {
-            console.log("unmount");
-        };
+const Random = ({breed, image}) => {
+    return(
+        <div className="RandomResult"><h5>{breed}</h5><img className="RandomDog" src={image} alt="doggie"/></div>
+    );
+};
 
-    }, []);
+export default Random;
 
-    return <div>HELLO</div>
-}
