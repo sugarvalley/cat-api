@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 
-const Breed = ({breed, group, why, life, temperament, weight, height, image}) => {
+const Breed = ({breed, group, why, life, temperament, weight, height, img}) => {
 
-    const [image1, setImage] = useState('');
+    const [image, setImage] = useState('');
 
     useEffect(() => {
-       getImage();
-    }, []);
+        getImage();
+    }, [breed]);
 
     const getImage = async () => {
-        const response = await fetch(`https://api.thedogapi.com/v1/images/${image}?api_key=525bdeb0-e806-4443-a50e-93404bf3709b`);
-        const data = await response.json();
-        setImage(data.url);
+        const imgurl = await fetch(`https://api.thedogapi.com/v1/images/${img}?api_key=525bdeb0-e806-4443-a50e-93404bf3709b`);
+        const imgu = await imgurl.json();
+        setImage(imgu);
     }
 
     return(
@@ -23,9 +23,10 @@ const Breed = ({breed, group, why, life, temperament, weight, height, image}) =>
             <p className="Breed-temperament">Temperament: {temperament}</p>
             <p className="Breed-width">Weight: {weight}</p>
             <p className="Breed-height">Height: {height}</p>
-            <img src={image1} alt="dog"/>
+            <img src={image.url} alt="no photo"/>
         </div>
     );
 };
+
 
 export default Breed;

@@ -3,13 +3,14 @@ import Random from "./FetchRandomDog";
 import Breed from "./FetchBreeds";
 import './App.css';
 
+
 const App = () => {
     const API_KEY = "525bdeb0-e806-4443-a50e-93404bf3709b";
     const [random, setRandom] = useState([]);
     const [breed, setBreed] = useState([]);
     const [search, setSearch] = useState('');
     const [query, setQuery] = useState('samoyed');
-    const [randomQuery, setRandomQuery] = useState();
+    const [randomQuery, setRandomQuery] = useState('');
 
     useEffect(() => {
         getBreed();
@@ -79,9 +80,10 @@ const App = () => {
                             temperament={breeds["temperament"]}
                             weight={breeds.weight["metric"]}
                             height={breeds.height["metric"]}
-                            image={breeds["reference_image_id"]}
+                            img={breeds["reference_image_id"]}
                             />
                         ))}
+
                     </div>
                 </div>
                 {/*<div className="Puppies">*/}
